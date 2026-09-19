@@ -369,3 +369,147 @@ body {
 .social-link:nth-child(6) { animation-delay: 0.6s; }
 .social-link:nth-child(7) { animation-delay: 0.7s; } */
 
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.dark-mode .profile-card {
+    background: rgba(44, 62, 80, 0.95);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .profile-name {
+    color: #ecf0f1;
+}
+
+.dark-mode .profile-title {
+    color: #bdc3c7;
+}
+
+.dark-mode .social-link {
+    background: rgba(52, 73, 94, 0.8);
+    color: #ecf0f1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .social-link:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores específicos para cada red social en modo oscuro */
+.dark-mode .whatsapp:hover {
+    background: #25d366;
+    color: white;
+    border-color: #25d366;
+}
+
+.dark-mode .facebook:hover {
+    background: #1877f2;
+    color: white;
+    border-color: #1877f2;
+}
+
+.dark-mode .instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    border-color: #e6683c;
+}
+
+.dark-mode .youtube:hover {
+    background: #ff0000;
+    color: white;
+    border-color: #ff0000;
+}
+
+.dark-mode .tiktok:hover {
+    background: #000000;
+    color: white;
+    border-color: #000000;
+}
+
+.dark-mode .email:hover {
+    background: #34495e;
+    color: white;
+    border-color: #34495e;
+}
+
+.dark-mode .phone:hover {
+    background: #27ae60;
+    color: white;
+    border-color: #27ae60;
+}
+
+.dark-mode .footer-info {
+    border-top: 1px solid #4a627a;
+}
+
+.dark-mode .remax-info {
+    color: #bdc3c7;
+}
+
+.dark-mode .logo-container {
+    border-top: 1px solid #4a627a;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.dark-mode-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle.active i {
+    transform: rotate(360deg);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #f39c12;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background-color: #e67e22;
+}
+
+/* Logo visibility control */
+.light-mode-logo {
+    display: block;
+}
+
+.dark-mode-logo {
+    display: none;
+}
+
+
+
+
+
+
+
