@@ -1,39 +1,54 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const lightModeLogo = document.getElementById('lightModeLogo');
+    const darkModeLogo = document.getElementById('darkModeLogo');
+
+    // Función para alternar visibilidad de logos
+    function toggleLogos(isDarkMode) {
+        if (isDarkMode) {
+            lightModeLogo.style.display = 'none';
+            darkModeLogo.style.display = 'block';
+        } else {
+            lightModeLogo.style.display = 'block';
+            darkModeLogo.style.display = 'none';
+        }
+    }
+
+    // Check for saved dark mode preference
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        darkModeToggle.querySelector('i').classList.remove('fa-moon');
+        darkModeToggle.querySelector('i').classList.add('fa-sun');
+        toggleLogos(true);
+    } else {
+        toggleLogos(false);
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        let isCurrentlyDarkMode = body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isCurrentlyDarkMode);
+        
+        toggleLogos(isCurrentlyDarkMode);
+
+        if (isCurrentlyDarkMode) {
+            darkModeToggle.querySelector('i').classList.remove('fa-moon');
+            darkModeToggle.querySelector('i').classList.add('fa-sun');
+        } else {
+            darkModeToggle.querySelector('i').classList.remove('fa-sun');
+            darkModeToggle.querySelector('i').classList.add('fa-moon');
+        }
+    });
+    
     // Configurar imagen de perfil placeholder
     const profileImage = document.getElementById('profileImage');
-    const companyLogo = document.getElementById('companyLogo');
-    
-    // Si no hay imagen de perfil, mostrar iniciales
-    profileImage.onerror = function() {
-        this.style.display = 'flex';
-        this.innerHTML = 'VV';
-        this.style.fontSize = '48px';
-        this.style.fontWeight = 'bold';
-        this.style.color = 'white';
-        this.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-    };
-    
-    // Configurar iniciales por defecto para perfil
-    profileImage.innerHTML = 'VV';
-    profileImage.style.display = 'flex';
-    profileImage.style.alignItems = 'center';
-    profileImage.style.justifyContent = 'center';
-    profileImage.style.fontSize = '48px';
-    profileImage.style.fontWeight = 'bold';
-    profileImage.style.color = 'white';
-    profileImage.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-    
-    // Configurar logo placeholder
-    if (companyLogo) {
-        companyLogo.onerror = function() {
-            this.style.display = 'flex';
-            this.style.alignItems = 'center';
-            this.style.justifyContent = 'center';
-            this.innerHTML = '';
-        };
-    }
+
     
 
     
@@ -152,14 +167,7 @@ function updateProfileImage(imageSrc) {
     profileImage.style.color = 'inherit';
 }
 
-// Función para cambiar el logo de la empresa
-function updateCompanyLogo(logoSrc) {
-    const companyLogo = document.getElementById('companyLogo');
-    if (companyLogo) {
-        companyLogo.src = logoSrc;
-        companyLogo.style.display = 'block';
-    }
-}
+
 
 // Función para actualizar enlaces de redes sociales
 function updateSocialLinks(links) {
@@ -187,4 +195,5 @@ window.ProfileUtils = {
     updateCompanyLogo,
     updateSocialLinks
 };
+
 
